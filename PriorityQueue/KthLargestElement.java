@@ -1,5 +1,5 @@
 import java.util.*;
-class Solution {
+class KthLargestElement {
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>((x, y) -> x - y);
         int i;

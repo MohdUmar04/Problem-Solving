@@ -1,5 +1,5 @@
 import java.util.*;
-public class point{
+    class point{
     int x,y,d;
     public point(int x,int y,int d)
     {
@@ -8,7 +8,7 @@ public class point{
         this.d=d;
     }
 }
-class Solution {
+class KClosestPointToOrigin {
     public int[][] kClosest(int[][] p, int k) {
         PriorityQueue<point> maxheap=new PriorityQueue<>((p1,p2)->p2.d-p1.d);
         int i,x,y,d;

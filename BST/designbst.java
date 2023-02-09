@@ -99,7 +99,9 @@ public class designbst{
                 addvalue(a,temp);
                 break;
                 case 2:
-                System.out.println("Error 404");
+                int d=sc.nextInt();
+                delete(root,d);
+                System.out.println("");
                 break;
                 case 3:
                 System.out.println("a-PreOrder Traversal");

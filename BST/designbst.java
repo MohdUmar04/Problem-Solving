@@ -1,6 +1,5 @@
 import java.util.*;
 
-import javax.lang.model.util.ElementScanner6;
 class Node{
     int val;
     Node left,right;
@@ -40,6 +39,9 @@ public class designbst{
                 else
                 addvalue(a, root.right);}
         }
+    }
+    static void delete(Node root,int d){
+        System.out.println("Error 404");
     }
     static void PreOrder(Node root)
     {

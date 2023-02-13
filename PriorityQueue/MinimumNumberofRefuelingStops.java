@@ -7,7 +7,6 @@ class MinimumNumberofRefuelingStops {
         for(int st[]:stations)
         {
             int p= st[0];
-            int f=st[1];
             while(cf<p)
             {
                 if(maxheap.size()==0)

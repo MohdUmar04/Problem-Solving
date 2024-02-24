@@ -17,7 +17,6 @@ class Solution {
             graph.get(flight[0]).add(l);
             
         }
-        graph=graph;
     }
     public static int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         int[] stop = new int[n];

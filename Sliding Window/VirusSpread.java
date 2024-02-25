@@ -14,7 +14,6 @@ public class VirusSpread {
         for(int j=0;j<n;j++)
         arr[i][j] = sc.nextInt();
         
-
         Queue<int[]> que = new LinkedList<>();
         int res = 0;
 
@@ -57,7 +56,6 @@ public class VirusSpread {
                 que.add(new int[]{a, b-1 });
             }}
         }
-        return res-1;
         System.out.println(res-1);
 
     }

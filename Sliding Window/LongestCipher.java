@@ -27,7 +27,6 @@ public class LongestCipher {
             end++;
 
         }
-        return res;
         System.out.println(res);
 
         sc.close();

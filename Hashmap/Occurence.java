@@ -2,7 +2,7 @@ package Hashmap;
 Hashmap
 import java.util.HashMap;
 import java.util.Map;
-
+  
 public class Occurence {
     public static void main(String[] args) {
         int[] arr = new int[]{1,2,20,8,8,1,2,5,8,0};

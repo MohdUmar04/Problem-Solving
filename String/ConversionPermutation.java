@@ -11,9 +11,7 @@ public class ConversionPermutation {
             res[i-2] =Integer.toString(input1,i);
         }
         Arrays.sort(res);
-
-        return res[0];
-
+        
         for(String s : res)
         System.out.print(s +" ");
         // System.out.println(res.length);

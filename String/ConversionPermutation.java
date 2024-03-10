@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ConversionPermutation {
@@ -9,13 +6,19 @@ public class ConversionPermutation {
         Scanner sc = new Scanner(System.in);
         int input1 = sc.nextInt();
 
-        List<String> res = new ArrayList<>();
+        String[] res = new String[35];
         for(int i=2;i<= 36; i++){
-            res.add( Integer.toString(input1,i));
+            res[i-2] =Integer.toString(input1,i);
         }
-        Collections.sort(res);
+        Arrays.sort(res);
 
-        System.out.println(res);
+        return res[0];
+
+        for(String s : res)
+        System.out.print(s +" ");
+        // System.out.println(res.length);
+
+        sc.close();
     }
     
 }

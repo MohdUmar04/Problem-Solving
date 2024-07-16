@@ -13,6 +13,17 @@
  *     }
  * }
  */
+
+class Data{
+    TreeNode node;
+    String path;
+    TreeNode pre;
+    Data(TreeNode t, String p, TreeNode pre) {
+        this.node = t;
+        this.path = p;
+        this.pre = pre;
+    }
+}
 class Solution {
     Map<TreeNode,TreeNode> map;
     TreeNode start,end;
@@ -29,55 +40,37 @@ class Solution {
         findPar(current.left, current);
         findPar(current.right, current);
     }
-
-    private String[] solve(TreeNode root, TreeNode dest, String s, TreeNode pre){
-        if(root == dest) return new String[]{"" , "1"};
-        else if(root == null) return new String[]{"", "0"};
-        else {
-            String[] l=new String[]{"", "0"};
-            String[] r=new String[]{"", "0"};
-            String[] p =new String[]{"", "0"};
-            if(root.left != pre)
-           l = solve(root.left, dest , "L", root);
-            if(l[1].equals("1"))
-            {
-                l[0]= "L"+l[0];
-                return l;
-            }
-
-            if(root.right != pre)
-            r = solve(root.right, dest , "R", root);
-            if(r[1].equals("1"))
-            {
-                r[0]= "R"+r[0];
-                return r;
-            }
-            if(map.get(root) != pre)
-            p = solve(map.get(root), dest , "P", root);
-
-            if(p[1].equals("1"))
-            {
-                p[0]= "U"+p[0];
-                return p;
-            }
-            return new String[]{"",""};
-            
-
-
-        }
-    }
-
     public String getDirections(TreeNode root, int startValue, int destValue) {
         map = new HashMap<>();
-        start=null;
-        end = null;
         this.startValue = startValue;
         this.destValue = destValue;
 
         findPar(root, null);
-        
+        Queue<Data> que = new LinkedList<>();
 
-        return solve(start,end, " ",null)[0];
+        que.add(new Data(start,"",null));
+
+        while(!que.isEmpty()){
+            
+            Data d = que.poll();
+            String cpath = d.path;
+
+            if(d.node == end) return cpath;
+
+                        
+            if( d.node.left != null &&  d.node.left != d.pre)
+            que.add(new Data(d.node.left, cpath+"L", d.node));
+                if( d.node.right != null &&  d.node.right != d.pre)
+            que.add(new Data(d.node.right, cpath+"R", d.node));
+
+                if( map.get(d.node) != null &&  map.get(d.node) != d.pre)
+            que.add(new Data(map.get(d.node), cpath+"U", d.node));
+
+
+        }
+        return " ";
+
+
 
     }
 }

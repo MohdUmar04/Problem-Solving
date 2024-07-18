@@ -20,7 +20,7 @@ class Solution {
         j++;
         int k=0;
         while(i<n && j<nums1.length) {
-            if(nums2[i] < nums1[j])
+            if(nums2[i] <= nums1[j])
                 nums1[k++] = nums2[i++];
             else
                 nums1[k++] = nums1[j++];

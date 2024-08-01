@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 class Solution {
     public int countSeniors(String[] details) {          
         return (int) Arrays.stream(details)
-            .filter(a -> Integer.parseInt((new StringBuilder(a)).substring(11, 13)) > 60).count();
+            .filter(a -> (0+(a.charAt(11)-'0')*10+(a.charAt(12)-'0')) > 60).count();
             
     }
 }

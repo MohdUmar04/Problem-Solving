@@ -1,9 +1,13 @@
 class DSU {
     int[] parent;
+    int[] rank;
     DSU(int n){
         parent = new int[n];
-        for(int i=0;i<n;i++)
+        rank = new int[n];
+        for(int i=0;i<n;i++){
             parent[i] = i;
+            rank[i] = 0;
+        }
     }
 
     int find(int a) {
@@ -18,7 +22,16 @@ class DSU {
         int bParent = find(b);
 
         if(aParent != bParent) {
-            parent[aParent] = bParent;
+
+            if(rank[aParent] > rank[bParent])
+                parent[aParent] = bParent;
+            else if(rank[aParent] < rank[bParent])
+                parent[bParent] = aParent;
+            else {
+                parent[aParent] = bParent;
+                rank[aParent]++;
+            }
+
         }
     }
 

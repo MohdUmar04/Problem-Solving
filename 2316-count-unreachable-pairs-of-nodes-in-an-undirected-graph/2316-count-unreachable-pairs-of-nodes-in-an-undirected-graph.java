@@ -33,12 +33,12 @@ class Solution {
         }
         long res = 0L;
 
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Long,Long> map = new HashMap<>();
 
         for(int i = 0 ; i < n ; i++) 
         {
             int f = dsu.find(i);
-            map.put(f,map.getOrDefault(f,0)+1);
+            map.put((long) f,(long)map.getOrDefault((long)f,0L)+1);
         }
             
 

@@ -30,7 +30,8 @@ class Solution(object):
             # print(pq, res)
             currDist, curr, hops = heapq.heappop(pq)
 
-
+            if(curr == dst):
+                return currDist
             if( hops == k+1):
                 continue
 
@@ -40,20 +41,20 @@ class Solution(object):
                     continue
 
                 # print('hvjhklhvg', (graph[curr][i] + currDist <= res[i]))
-                if graph[curr][i] + currDist <= res[i]:
+                if graph[curr][i] + currDist < res[i] or hops+1 < stp[i]:
                     res[i] = graph[curr][i] + currDist
                     stp[i] = hops+1
                     heapq.heappush(pq,(graph[curr][i] + currDist, i , hops+1))
 
-                elif hops+1 < stp[i]:
-                    stp[i] = hops +1
-                    heapq.heappush(pq,(graph[curr][i] + currDist, i , hops+1))
+                # elif hops+1 < stp[i]:
+                #     stp[i] = hops +1
+                #     heapq.heappush(pq,(graph[curr][i] + currDist, i , hops+1))
 
    
                   
                 
         print(res,stp)
-        return -1 if res[dst] == float('inf') else res[dst]
+        return -1 
 
         
         

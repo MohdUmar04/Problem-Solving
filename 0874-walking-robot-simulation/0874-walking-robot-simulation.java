@@ -28,22 +28,30 @@ class Solution {
                 switch(d) {
                     case 0:
                         while(ch-- > 0){
-                            b= !set.contains(Arrays.asList(a,b+1))?b+1:b;
+                            if(set.contains(Arrays.asList(a,b+1)))
+                                break;
+                            b= b+1;
                         }
                     break;
                     case 1:
                         while(ch-- > 0){
-                            a= !set.contains(Arrays.asList(a+1,b))?a+1:a;
+                            if(set.contains(Arrays.asList(a+1,b)))
+                                break;
+                            a= a+1;
                         }
                     break;
                     case 2:
                         while(ch-- > 0){
-                            b= !set.contains(Arrays.asList(a,b-1))?b-1:b;
+                            if(set.contains(Arrays.asList(a,b-1)))
+                                break;
+                            b= b-1;
                         }
                     break;
                     case 3:
                         while(ch-- > 0){
-                            a= !set.contains(Arrays.asList(a-1,b))?a-1:a;
+                            if(set.contains(Arrays.asList(a-1,b)))
+                                break;
+                            a= a-1;
                         }
                 }
                 // System.out.println(r[0] + "  "+ r[1]);
